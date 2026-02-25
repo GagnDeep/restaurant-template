@@ -25,7 +25,7 @@ export function Hero() {
               {hero.badge}
             </Badge>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-display leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground font-heading leading-[1.1]">
               {hero.heading} <br className="hidden lg:block" />
               <span className="relative inline-block mt-2 lg:mt-0">
                 <Marker rotation="-rotate-1">{hero.headingHighlight}</Marker>
@@ -40,9 +40,12 @@ export function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto pt-2">
-              <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1">
+              <Button asChild size="lg" className="rounded-full h-14 px-8 text-lg shadow-lg shadow-primary/20 hover:shadow-primary/40 transition-all hover:-translate-y-1 group relative overflow-hidden">
                 <Link href={hero.primaryCta.href}>
-                  {hero.primaryCta.text} <ArrowRight className="ml-2 h-5 w-5" />
+                  <span className="relative z-10 flex items-center">
+                    {hero.primaryCta.text} <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </span>
+                  <div className="absolute inset-0 bg-white/20 translate-x-[-100%] group-hover:animate-[shimmer_1.5s_infinite] skew-x-12" />
                 </Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="rounded-full h-14 px-8 text-lg bg-background/50 backdrop-blur-sm hover:bg-background/80 border-2 hover:border-primary/50 transition-all">
@@ -75,7 +78,7 @@ export function Hero() {
                      {[1,2,3,4,5].map(i => <Star key={i} className="w-4 h-4 fill-current" />)}
                    </div>
                    <span className="text-sm font-medium text-muted-foreground">
-                     From <span className="text-foreground font-bold">10,000+</span> happy customers
+                     {siteConfig.uiLabels.hero.from} <span className="text-foreground font-bold">10,000+</span> {siteConfig.uiLabels.hero.happyCustomers}
                    </span>
                 </div>
               </div>

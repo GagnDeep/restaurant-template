@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { siteConfig } from "@/config/site";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { MobileActionBar } from "@/components/mobile-action-bar";
+import { SkipLink } from "@/components/layout/skip-link";
 
 export const metadata: Metadata = {
   title: {
@@ -63,6 +64,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground pb-20 md:pb-0">
+        <SkipLink />
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

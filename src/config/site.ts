@@ -116,11 +116,11 @@ export const siteConfig = {
       headingHighlight: "Offerings",
       description: "From spicy curries to sweet delights, explore our diverse menu categories.",
       features: [
-        { title: "North Indian", description: "Rich, creamy gravies and tandoori breads.", icon: "Utensils", category: "Veg" },
+        { title: "North Indian", description: "Rich, creamy gravies and tandoori breads.", icon: "Utensils", category: "Veg", highlighted: true },
         { title: "Chinese", description: "Indo-Chinese fusion with a spicy kick.", icon: "ChefHat", category: "Veg" },
         { title: "South Indian", description: "Crispy dosas and steaming idlis.", icon: "MapPin", category: "Veg" },
         { title: "Beverages", description: "Refreshing lassi, shakes and mocktails.", icon: "ShoppingBag", category: "Drinks" },
-        { title: "Desserts", description: "Traditional sweets to end your meal.", icon: "Star", category: "Dessert" },
+        { title: "Desserts", description: "Traditional sweets to end your meal.", icon: "Star", category: "Dessert", highlighted: true },
         { title: "Snacks", description: "Quick bites and chaat for every mood.", icon: "Clock", category: "Veg" },
       ],
     },
@@ -221,6 +221,12 @@ export const siteConfig = {
   about: {
     heading: "Our Story",
     description: "Founded in 1995, Aneja started as a small sweet shop and has grown into Patiala's favorite family restaurant...",
+    timeline: [
+      { year: "1995", title: "The Beginning", description: "Opened as a humble sweet shop in Model Town." },
+      { year: "2005", title: "Full Dining", description: "Expanded into a full-service family restaurant." },
+      { year: "2015", title: "Renovation", description: "Complete interior overhaul and modern menu launch." },
+      { year: "2023", title: "Best in Town", description: "Awarded 'Best Family Restaurant' by Patiala Life." },
+    ],
   },
   menu: {
     heading: "Our Menu",
@@ -261,6 +267,11 @@ export const siteConfig = {
     pricing: {
       popular: "Popular",
       orderNow: "Order Now",
+      perPerson: "/ person",
+    },
+    hero: {
+      from: "From",
+      happyCustomers: "happy customers",
     },
     featureDeepDive: {
       badge: "Authentic Spices",
@@ -268,13 +279,6 @@ export const siteConfig = {
     announcement: {
       openNow: "Open Now",
       opensAt: "Opens at",
-    },
-    menu: {
-      filterAll: "All",
-      filterVeg: "Veg",
-      filterNonVeg: "Non-Veg",
-      filterDrinks: "Drinks",
-      filterDessert: "Dessert",
     },
     testimonials: {
       readMore: "Read More Stories",
@@ -290,10 +294,6 @@ export const siteConfig = {
       openingHours: "Opening Hours",
       daily: "Daily",
     },
-    footer: {
-      privacy: "Privacy Policy",
-      terms: "Terms of Service",
-    },
     newsletter: {
       privacy: "We care about your data in our",
       privacyLink: "privacy policy",
@@ -303,6 +303,24 @@ export const siteConfig = {
     },
     benefits: {
       badge: "Our Promise",
+    },
+    menu: {
+      filterAll: "All",
+      filterVeg: "Veg",
+      filterNonVeg: "Non-Veg",
+      filterDrinks: "Drinks",
+      filterDessert: "Dessert",
+      chefChoice: "Chef's Choice",
+    },
+    footer: {
+      privacy: "Privacy Policy",
+      terms: "Terms of Service",
+      backToTop: "Back to Top",
+    },
+    aria: {
+      scrollToTop: "Scroll to top",
+      mainNav: "Main Navigation",
+      mobileNav: "Mobile Navigation",
     },
   },
   structuredData: {

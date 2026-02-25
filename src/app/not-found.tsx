@@ -14,8 +14,8 @@ export default function NotFound() {
         <div className="w-48 h-48 mb-8 animate-pulse">
           <EmptyPlateGraphic />
         </div>
-        <h1 className="text-8xl font-bold text-primary opacity-20 select-none font-display absolute -z-10 blur-sm scale-150">404</h1>
-        <h2 className="text-4xl font-bold tracking-tight text-foreground font-display">{notFound.heading}</h2>
+        <h1 className="text-8xl font-bold text-primary opacity-20 select-none font-heading absolute -z-10 blur-sm scale-150">404</h1>
+        <h2 className="text-4xl font-bold tracking-tight text-foreground font-heading">{notFound.heading}</h2>
         <p className="text-lg text-muted-foreground font-sans leading-relaxed">{notFound.description}</p>
         <Button asChild size="lg" className="rounded-full mt-8 shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
           <Link href="/">

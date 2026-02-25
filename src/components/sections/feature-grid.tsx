@@ -12,7 +12,7 @@ import { FadeIn } from "@/components/ui/fade-in"
 
 export function FeatureGrid() {
   const { featuresGrid } = siteConfig.home
-  const { filterAll, filterVeg, filterNonVeg, filterDrinks, filterDessert } = siteConfig.uiLabels.menu
+  const { filterAll, filterVeg, filterNonVeg, filterDrinks, filterDessert, chefChoice } = siteConfig.uiLabels.menu
 
   const [activeCategory, setActiveCategory] = useState("All")
 
@@ -31,7 +31,7 @@ export function FeatureGrid() {
   return (
     <Section className="bg-background py-24">
       <FadeIn className="container px-4 md:px-6 text-center space-y-4 mb-12">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-display">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading">
           {featuresGrid.heading}
           <span className="relative ml-2 inline-block">
             <Marker>{featuresGrid.headingHighlight}</Marker>
@@ -72,20 +72,32 @@ export function FeatureGrid() {
 
           return (
             <FadeIn key={`${feature.title}-${i}`} delay={i * 0.1}>
-              <Card className="group relative overflow-hidden border bg-background p-6 transition-all hover:shadow-lg hover:-translate-y-1 h-full">
+              <Card
+                className={cn(
+                  "group relative overflow-hidden border bg-background p-6 transition-all hover:shadow-lg hover:-translate-y-1 h-full",
+                  feature.highlighted && "border-primary/50 ring-2 ring-primary/10 shadow-md"
+                )}
+              >
                 <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
+
+                {feature.highlighted && (
+                  <div className="absolute top-0 right-0 bg-primary text-primary-foreground text-[10px] font-bold px-3 py-1 rounded-bl-lg shadow-sm">
+                    {chefChoice}
+                  </div>
+                )}
+
                 <CardHeader className="relative z-10 p-0 space-y-4">
                   <div className="flex justify-between items-start">
                     <div className="inline-flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                       <Icon className="h-6 w-6" />
                     </div>
-                    {feature.category && (
+                    {feature.category && !feature.highlighted && (
                        <span className="text-[10px] uppercase font-bold tracking-wider text-muted-foreground bg-muted px-2 py-1 rounded-sm">
                          {feature.category}
                        </span>
                     )}
                   </div>
-                  <CardTitle className="text-xl font-display">{feature.title}</CardTitle>
+                  <CardTitle className="text-xl font-heading">{feature.title}</CardTitle>
                   <CardDescription className="text-base font-sans leading-relaxed">{feature.description}</CardDescription>
                 </CardHeader>
               </Card>

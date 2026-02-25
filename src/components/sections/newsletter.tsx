@@ -22,7 +22,7 @@ export function Newsletter() {
           <div className="p-4 bg-background rounded-full text-primary shadow-lg mb-4 ring-4 ring-primary/10">
             <Mail className="h-8 w-8" />
           </div>
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-display">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading">
             {newsletter.heading}
           </h2>
           <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed font-sans leading-relaxed">

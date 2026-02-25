@@ -11,7 +11,7 @@ export function TestimonialsCarousel() {
   return (
     <Section className="py-24 bg-background overflow-hidden">
       <div className="container px-4 md:px-6 mb-16 text-center">
-        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-display">
+        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading">
           <Marker>{testimonials.heading}</Marker>
         </h2>
       </div>
@@ -34,7 +34,7 @@ export function TestimonialsCarousel() {
                       &quot;{item.text}&quot;
                     </p>
                     <div className="flex flex-col mt-auto pt-4 border-t w-full">
-                      <span className="font-bold text-foreground font-display">{item.author}</span>
+                      <span className="font-bold text-foreground font-heading">{item.author}</span>
                       <span className="text-xs uppercase tracking-wider text-muted-foreground">{item.role}</span>
                     </div>
                   </CardContent>

@@ -25,7 +25,7 @@ export function FeatureDeepDive() {
             <Badge variant="outline" className="text-primary border-primary/20 bg-primary/5 px-4 py-1 text-sm rounded-full">
               {deepDive.badge}
             </Badge>
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-display">
+            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading">
               <Marker>{deepDive.heading}</Marker>
             </h2>
             <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans">

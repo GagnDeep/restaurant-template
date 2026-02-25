@@ -45,7 +45,7 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
 
           <FadeIn className="space-y-8">
-            <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-display">
+            <h1 className="text-4xl md:text-5xl font-bold tracking-tight font-heading">
               <Marker>{contact.heading}</Marker>
             </h1>
             <p className="text-xl text-muted-foreground font-sans leading-relaxed">

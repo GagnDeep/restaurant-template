@@ -17,7 +17,7 @@ export function CTA() {
       <div className="absolute inset-0 bg-grid-white/10 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] dark:bg-grid-black/10 pointer-events-none" />
 
       <FadeIn className="container px-4 md:px-6 text-center space-y-8 relative z-10">
-        <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl font-display">
+        <h2 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl font-heading">
           <Marker>{cta.heading}</Marker>
         </h2>
         <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed font-sans">

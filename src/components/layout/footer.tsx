@@ -25,7 +25,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-4">
             <Link href="/" className="inline-block">
-               <h2 className="text-2xl font-display font-bold tracking-tighter text-foreground hover:text-primary transition-colors">
+               <h2 className="text-2xl font-heading font-bold tracking-tighter text-foreground hover:text-primary transition-colors">
                  {footer.logo}
                </h2>
             </Link>
@@ -52,7 +52,7 @@ export function Footer() {
           {/* Links Columns */}
           {footer.sections.map((section) => (
             <div key={section.title} className="space-y-4">
-              <h3 className="text-lg font-display font-semibold text-foreground">
+              <h3 className="text-lg font-heading font-semibold text-foreground">
                 {section.title}
               </h3>
               <ul className="space-y-3 text-sm text-muted-foreground">

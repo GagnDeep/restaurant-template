@@ -16,16 +16,19 @@ export default function PrivacyPage() {
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main className="flex-1">
-        <Section className="py-24">
+        <Section className="py-24 bg-background">
           <div className="container px-4 md:px-6 max-w-4xl">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl mb-8">
+            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl mb-12 font-heading">
               <Marker>{privacy.heading}</Marker>
             </h1>
             <div className="prose dark:prose-invert max-w-none">
               <p>{privacy.content}</p>
-              {/* Placeholder for more content since config is minimal */}
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+              <h3>1. Data Collection</h3>
+              <p>We collect minimal personal data necessary to provide our services, such as your name and email when you contact us.</p>
+              <h3>2. Use of Data</h3>
+              <p>Your data is used solely for communication and service delivery. We do not sell your data to third parties.</p>
+              <h3>3. Cookies</h3>
+              <p>We use cookies to improve your browsing experience and analyze site traffic.</p>
             </div>
           </div>
         </Section>

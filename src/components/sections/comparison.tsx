@@ -14,7 +14,7 @@ export function Comparison() {
     <Section className="py-24 bg-background overflow-hidden">
       <div className="container px-4 md:px-6">
         <FadeIn className="text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-display">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading">
             <Marker>{comparison.heading}</Marker>
           </h2>
         </FadeIn>
@@ -23,7 +23,7 @@ export function Comparison() {
           {/* Competitor Column */}
           <FadeIn delay={0.1} className="flex flex-col gap-8 rounded-3xl border bg-muted/30 p-8 md:p-10 transition-all hover:bg-muted/50">
             <div className="text-center border-b pb-6 border-border/50">
-              <h3 className="text-2xl font-bold text-muted-foreground font-display">{comparison.competitorName}</h3>
+              <h3 className="text-2xl font-bold text-muted-foreground font-heading">{comparison.competitorName}</h3>
             </div>
             <ul className="space-y-6">
               {comparison.cons.map((item, i) => (
@@ -43,7 +43,7 @@ export function Comparison() {
               <span className="text-lg">🏆</span> {badge}
             </div>
             <div className="text-center border-b pb-6 border-primary/10">
-              <h3 className="text-3xl font-bold text-foreground font-display">{comparison.ourName}</h3>
+              <h3 className="text-3xl font-bold text-foreground font-heading">{comparison.ourName}</h3>
             </div>
             <ul className="space-y-6">
               {comparison.pros.map((item, i) => (

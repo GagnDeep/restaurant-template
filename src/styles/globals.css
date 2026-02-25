@@ -8,6 +8,7 @@
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: var(--font-serif), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-heading: var(--font-serif);
 }
 
 @theme inline {
@@ -166,5 +167,52 @@
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@layer base {
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/80 rounded-full border-2 border-background;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary;
+  }
+
+  /* Selection Color */
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  /* Focus Ring */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-background;
+  }
+}
+
+@layer utilities {
+  .prose {
+    @apply text-foreground/90 leading-relaxed max-w-none;
+  }
+  .prose h1, .prose h2, .prose h3 {
+    @apply font-heading font-bold text-foreground mt-8 mb-4;
+  }
+  .prose h1 { @apply text-4xl; }
+  .prose h2 { @apply text-2xl; }
+  .prose h3 { @apply text-xl; }
+  .prose p { @apply mb-4 text-muted-foreground font-sans; }
+  .prose ul { @apply list-disc list-outside ml-6 mb-4 text-muted-foreground; }
+  .prose a { @apply text-primary underline underline-offset-4 hover:text-primary/80; }
+}
+
+@layer utilities {
+  .will-change-transform {
+    will-change: transform;
   }
 }

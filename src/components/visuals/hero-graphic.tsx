@@ -44,7 +44,7 @@ export function HeroGraphic({ className }: { className?: string }) {
 
       <motion.svg
         viewBox="0 0 800 800"
-        className="w-full h-full max-w-[800px] max-h-[800px]"
+        className="w-full h-full max-w-[800px] max-h-[800px] will-change-transform"
         xmlns="http://www.w3.org/2000/svg"
         animate={{ x: mousePosition.x * 0.2, y: mousePosition.y * 0.2 }}
         transition={{ type: "spring", stiffness: 50, damping: 20 }}

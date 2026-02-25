@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { ArrowUp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import { siteConfig } from "@/config/site";
 
 export function ScrollToTop() {
   const [isVisible, setIsVisible] = useState(false);
@@ -42,7 +43,7 @@ export function ScrollToTop() {
             size="icon"
             onClick={scrollToTop}
             className="rounded-full shadow-lg hover:shadow-xl transition-shadow"
-            aria-label="Scroll to top"
+            aria-label={siteConfig.uiLabels.aria.scrollToTop}
           >
             <ArrowUp className="h-5 w-5" />
           </Button>

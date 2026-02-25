@@ -18,7 +18,7 @@ export function PricingPreview() {
     <Section className="py-24 bg-background">
       <div className="container px-4 md:px-6">
         <FadeIn className="text-center mb-16 space-y-4">
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-display">
+          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl font-heading">
             <Marker>{pricingPreview.heading}</Marker>
           </h2>
         </FadeIn>
@@ -43,10 +43,10 @@ export function PricingPreview() {
                         {i === 0 ? "🌱" : i === 1 ? "🔥" : "👑"}
                      </div>
                   </div>
-                  <CardTitle className="text-xl font-bold font-display">{plan.name}</CardTitle>
+                  <CardTitle className="text-xl font-bold font-heading">{plan.name}</CardTitle>
                   <CardDescription className="flex items-baseline justify-center gap-1 mt-2">
-                     <span className="text-4xl font-bold text-foreground font-display">{plan.price}</span>
-                     <span className="text-sm font-medium text-muted-foreground">/ person</span>
+                     <span className="text-4xl font-bold text-foreground font-heading">{plan.price}</span>
+                     <span className="text-sm font-medium text-muted-foreground">{siteConfig.uiLabels.pricing.perPerson}</span>
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="flex-1">
