@@ -6,7 +6,7 @@ import { Marker } from "@/components/visuals/marker"
 import { Underline } from "@/components/visuals/underline"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { Utensils, ChefHat, MapPin, ShoppingBag, Star, Clock, Search } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef, useEffect } from "react"
 import { cn } from "@/lib/utils"
 import { FadeIn } from "@/components/ui/fade-in"
 import { Input } from "@/components/ui/input"
@@ -17,6 +17,18 @@ export function FeatureGrid() {
 
   const [activeCategory, setActiveCategory] = useState("All")
   const [searchQuery, setSearchQuery] = useState("")
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault()
+        searchInputRef.current?.focus()
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [])
 
   const categories = [
     { id: "All", label: filterAll },
@@ -55,8 +67,9 @@ export function FeatureGrid() {
         <div className="relative w-full max-w-sm">
            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
            <Input
+             ref={searchInputRef}
              type="text"
-             placeholder="Search menu..."
+             placeholder="Search menu... (Cmd+K)"
              className="pl-9 h-10 rounded-full border-primary/20 bg-muted/30 focus-visible:ring-primary"
              value={searchQuery}
              onChange={(e) => setSearchQuery(e.target.value)}

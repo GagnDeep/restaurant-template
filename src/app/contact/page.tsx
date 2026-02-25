@@ -4,7 +4,8 @@ import { siteConfig } from "@/config/site"
 import { Section } from "@/components/ui/section"
 import { Marker } from "@/components/visuals/marker"
 import { FadeIn } from "@/components/ui/fade-in"
-import { MapPin, Phone, Mail, Clock } from "lucide-react"
+import { MapPin, Phone, Mail, Clock, Copy } from "lucide-react"
+import { toast } from "sonner"
 
 function MapGraphic() {
   return (
@@ -39,6 +40,11 @@ export default function Contact() {
   const { contact, openingHours } = siteConfig
   const { visitUs, callUs, emailUs, openingHours: hoursLabel, daily } = siteConfig.uiLabels.contact
 
+  const handleCopy = (text: string, label: string) => {
+    void navigator.clipboard.writeText(text)
+    toast.success(`${label} copied to clipboard!`)
+  }
+
   return (
     <Section className="py-24 bg-background">
       <div className="container px-4 md:px-6">
@@ -53,33 +59,33 @@ export default function Contact() {
             </p>
 
             <div className="space-y-6 pt-4">
-              <div className="flex items-start gap-4">
-                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <div className="flex items-start gap-4 group cursor-pointer" onClick={() => handleCopy(contact.info.address, "Address")}>
+                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform">
                     <MapPin className="w-5 h-5" />
                  </div>
                  <div>
-                    <h3 className="font-bold text-lg">{visitUs}</h3>
+                    <h3 className="font-bold text-lg flex items-center gap-2">{visitUs} <Copy className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></h3>
                     <p className="text-muted-foreground">{contact.info.address}</p>
                  </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <div className="flex items-start gap-4 group cursor-pointer" onClick={() => handleCopy(contact.info.phone, "Phone")}>
+                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform">
                     <Phone className="w-5 h-5" />
                  </div>
                  <div>
-                    <h3 className="font-bold text-lg">{callUs}</h3>
-                    <a href={`tel:${contact.info.phone}`} className="text-muted-foreground hover:text-primary transition-colors">{contact.info.phone}</a>
+                    <h3 className="font-bold text-lg flex items-center gap-2">{callUs} <Copy className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></h3>
+                    <p className="text-muted-foreground group-hover:text-primary transition-colors">{contact.info.phone}</p>
                  </div>
               </div>
 
-              <div className="flex items-start gap-4">
-                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+              <div className="flex items-start gap-4 group cursor-pointer" onClick={() => handleCopy(contact.info.email, "Email")}>
+                 <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0 group-hover:scale-110 transition-transform">
                     <Mail className="w-5 h-5" />
                  </div>
                  <div>
-                    <h3 className="font-bold text-lg">{emailUs}</h3>
-                    <a href={`mailto:${contact.info.email}`} className="text-muted-foreground hover:text-primary transition-colors">{contact.info.email}</a>
+                    <h3 className="font-bold text-lg flex items-center gap-2">{emailUs} <Copy className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" /></h3>
+                    <p className="text-muted-foreground group-hover:text-primary transition-colors">{contact.info.email}</p>
                  </div>
               </div>
 

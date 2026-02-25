@@ -271,3 +271,13 @@
     padding: 0 !important;
   }
 }
+
+@media print {
+  .group .hidden {
+    display: none !important;
+  }
+  .bg-muted\/30 {
+    background: white !important;
+    border: 1px solid #ddd !important;
+  }
+}

@@ -23,12 +23,12 @@ export default function TermsPage() {
             </h1>
             <div className="prose dark:prose-invert max-w-none">
               <p>{terms.content}</p>
-              <h3>1. Introduction</h3>
-              <p>Welcome to {siteConfig.name}. By accessing our website, you agree to these terms.</p>
-              <h3>2. Services</h3>
-              <p>We provide authentic Indian cuisine and catering services. Prices and availability are subject to change.</p>
-              <h3>3. User Conduct</h3>
-              <p>You agree to use our site responsibly and not to disrupt our services.</p>
+              {terms.sections.map((section, i) => (
+                <div key={i}>
+                  <h3>{section.title}</h3>
+                  <p>{section.content}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Section>

@@ -8,14 +8,29 @@ import { FadeIn } from "@/components/ui/fade-in"
 import { Mail, ArrowRight } from "lucide-react"
 import { useState } from "react"
 import { Confetti } from "@/components/ui/confetti"
+import { z } from "zod"
+import { toast } from "sonner"
 
 export function Newsletter() {
   const { newsletter } = siteConfig.home
   const [subscribed, setSubscribed] = useState(false)
+  const [email, setEmail] = useState("")
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setSubscribed(true)
+
+    // Honeypot check (implementation in JSX below)
+    const target = e.target as HTMLFormElement;
+    const honeypot = (target.elements.namedItem("website") as HTMLInputElement).value
+    if (honeypot) return
+
+    try {
+      z.string().email().parse(email)
+      setSubscribed(true)
+      toast.success(siteConfig.uiLabels.newsletter.success)
+    } catch (_err) {
+      toast.error(siteConfig.uiLabels.newsletter.error)
+    }
   }
 
   return (
@@ -40,14 +55,19 @@ export function Newsletter() {
           {subscribed ? (
             <FadeIn className="pt-6 pb-2 text-green-600 font-bold text-xl flex flex-col items-center gap-2">
               <Confetti />
-              <span>Thanks for subscribing! 🎉</span>
-              <span className="text-sm text-muted-foreground font-normal">Check your inbox for a welcome gift.</span>
+              <span>{siteConfig.uiLabels.newsletter.welcome}</span>
+              <span className="text-sm text-muted-foreground font-normal">{siteConfig.uiLabels.newsletter.checkInbox}</span>
             </FadeIn>
           ) : (
-            <form className="flex w-full max-w-md items-center space-x-2 pt-6" onSubmit={handleSubmit}>
+            <form className="flex w-full max-w-md items-center space-x-2 pt-6 relative" onSubmit={handleSubmit}>
+              {/* Honeypot field - hidden from users */}
+              <input type="text" name="website" className="hidden" tabIndex={-1} autoComplete="off" />
+
               <Input
                 type="email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder={newsletter.placeholder}
                 className="bg-background border-primary/20 h-12 focus-visible:ring-primary shadow-sm"
               />

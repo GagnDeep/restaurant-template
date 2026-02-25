@@ -250,10 +250,20 @@ export const siteConfig = {
     privacy: {
       heading: "Privacy Policy",
       content: "We respect your privacy. This policy outlines how we handle your data...",
+      sections: [
+        { title: "1. Data Collection", content: "We collect minimal personal data necessary to provide our services, such as your name and email when you contact us." },
+        { title: "2. Use of Data", content: "Your data is used solely for communication and service delivery. We do not sell your data to third parties." },
+        { title: "3. Cookies", content: "We use cookies to improve your browsing experience and analyze site traffic." },
+      ],
     },
     terms: {
       heading: "Terms of Service",
       content: "By using our website, you agree to the following terms...",
+      sections: [
+        { title: "1. Introduction", content: "Welcome to Aneja. By accessing our website, you agree to these terms." },
+        { title: "2. Services", content: "We provide authentic Indian cuisine and catering services. Prices and availability are subject to change." },
+        { title: "3. User Conduct", content: "You agree to use our site responsibly and not to disrupt our services." },
+      ],
     },
   },
   uiLabels: {
@@ -279,6 +289,23 @@ export const siteConfig = {
     announcement: {
       openNow: "Open Now",
       opensAt: "Opens at",
+      greetings: {
+        morning: "Good Morning!",
+        afternoon: "Good Afternoon!",
+        evening: "Good Evening!",
+      },
+    },
+    cookie: {
+      heading: "We use cookies 🍪",
+      description: "We use cookies to improve your experience. By using our site, you agree to our",
+      policyLink: "Privacy Policy",
+      close: "Close",
+      accept: "Accept All",
+    },
+    error: {
+      heading: "Something went wrong!",
+      description: "We apologize for the inconvenience. Our chefs are looking into it.",
+      retry: "Try again",
     },
     testimonials: {
       readMore: "Read More Stories",
@@ -297,6 +324,10 @@ export const siteConfig = {
     newsletter: {
       privacy: "We care about your data in our",
       privacyLink: "privacy policy",
+      success: "Subscribed successfully!",
+      error: "Please enter a valid email address.",
+      welcome: "Thanks for subscribing! 🎉",
+      checkInbox: "Check your inbox for a welcome gift.",
     },
     socialProof: {
       liveStatus: "Live Kitchen Status: Busy",
@@ -354,6 +385,11 @@ export const siteConfig = {
     menu: "https://aneja-patiala.com/features",
     servesCuisine: "Indian",
     priceRange: "₹₹",
+    hasMenu: {
+      "@type": "Menu",
+      name: "Main Menu",
+      url: "https://aneja-patiala.com/features",
+    },
   },
   notFound: {
     heading: "Page Not Found",

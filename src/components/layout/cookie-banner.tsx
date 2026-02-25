@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { motion, AnimatePresence } from "framer-motion"
+import { siteConfig } from "@/config/site"
 
 export function CookieBanner() {
   const [isVisible, setIsVisible] = useState(false)
@@ -20,6 +21,8 @@ export function CookieBanner() {
     setIsVisible(false)
   }
 
+  const { heading, description, policyLink, close, accept } = siteConfig.uiLabels.cookie
+
   return (
     <AnimatePresence>
       {isVisible && (
@@ -29,16 +32,16 @@ export function CookieBanner() {
           exit={{ y: 100, opacity: 0 }}
           className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-[400px] z-[100] bg-background/95 backdrop-blur border rounded-xl p-6 shadow-2xl ring-1 ring-primary/10"
         >
-          <h3 className="font-bold text-lg mb-2">We use cookies 🍪</h3>
+          <h3 className="font-bold text-lg mb-2">{heading}</h3>
           <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
-            We use cookies to improve your experience. By using our site, you agree to our <a href="/privacy" className="underline hover:text-primary">Privacy Policy</a>.
+            {description} <a href="/privacy" className="underline hover:text-primary">{policyLink}</a>.
           </p>
           <div className="flex gap-2 justify-end">
             <Button variant="outline" size="sm" onClick={() => setIsVisible(false)}>
-              Close
+              {close}
             </Button>
             <Button size="sm" onClick={handleAccept}>
-              Accept All
+              {accept}
             </Button>
           </div>
         </motion.div>

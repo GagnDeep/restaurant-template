@@ -10,6 +10,7 @@ import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { MobileActionBar } from "@/components/mobile-action-bar";
 import { SkipLink } from "@/components/layout/skip-link";
 import { CookieBanner } from "@/components/layout/cookie-banner";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: {
@@ -77,6 +78,7 @@ export default function RootLayout({
              {children}
              <ScrollToTop />
              <CookieBanner />
+             <Toaster position="top-center" />
              {/* Mobile Action Bar is visible only on mobile, handled by CSS inside component */}
              <div className="md:hidden">
                <MobileActionBar />

@@ -23,12 +23,12 @@ export default function PrivacyPage() {
             </h1>
             <div className="prose dark:prose-invert max-w-none">
               <p>{privacy.content}</p>
-              <h3>1. Data Collection</h3>
-              <p>We collect minimal personal data necessary to provide our services, such as your name and email when you contact us.</p>
-              <h3>2. Use of Data</h3>
-              <p>Your data is used solely for communication and service delivery. We do not sell your data to third parties.</p>
-              <h3>3. Cookies</h3>
-              <p>We use cookies to improve your browsing experience and analyze site traffic.</p>
+              {privacy.sections.map((section, i) => (
+                <div key={i}>
+                  <h3>{section.title}</h3>
+                  <p>{section.content}</p>
+                </div>
+              ))}
             </div>
           </div>
         </Section>

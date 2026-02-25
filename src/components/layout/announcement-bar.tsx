@@ -19,10 +19,11 @@ export function AnnouncementBar() {
       const hour = now.getHours()
 
       // Greeting Logic
+      const { morning, afternoon, evening } = siteConfig.uiLabels.announcement.greetings
       let greeting = ""
-      if (hour < 12) greeting = "Good Morning!"
-      else if (hour < 18) greeting = "Good Afternoon!"
-      else greeting = "Good Evening!"
+      if (hour < 12) greeting = morning
+      else if (hour < 18) greeting = afternoon
+      else greeting = evening
 
       // Open/Closed Logic
       if (hour >= openingHours.open && hour < openingHours.close) {
