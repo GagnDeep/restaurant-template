@@ -9,6 +9,7 @@ import { MobileNav } from "@/components/layout/mobile-nav"
 import { AnnouncementBar } from "@/components/layout/announcement-bar"
 import { usePathname } from "next/navigation"
 import { useState, useEffect } from "react"
+import { ScrollProgress } from "@/components/layout/scroll-progress"
 
 export function Navbar() {
   const pathname = usePathname()
@@ -24,6 +25,7 @@ export function Navbar() {
 
   return (
     <>
+      <ScrollProgress />
       <AnnouncementBar />
       <header
         className={cn(
@@ -46,13 +48,16 @@ export function Navbar() {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative transition-colors hover:text-primary",
+                    "relative transition-colors hover:text-primary py-2",
                     pathname === item.href
-                      ? "text-primary font-semibold after:absolute after:-bottom-5 after:left-0 after:h-[2px] after:w-full after:bg-primary"
+                      ? "text-primary font-semibold"
                       : "text-muted-foreground"
                   )}
                 >
                   {item.title}
+                  {pathname === item.href && (
+                    <span className="absolute bottom-0 left-0 w-full h-[2px] bg-primary rounded-full animate-in fade-in zoom-in duration-300" />
+                  )}
                 </Link>
               ))}
             </nav>

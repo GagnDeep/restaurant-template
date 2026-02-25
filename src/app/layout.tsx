@@ -9,6 +9,7 @@ import { siteConfig } from "@/config/site";
 import { ScrollToTop } from "@/components/ui/scroll-to-top";
 import { MobileActionBar } from "@/components/mobile-action-bar";
 import { SkipLink } from "@/components/layout/skip-link";
+import { CookieBanner } from "@/components/layout/cookie-banner";
 
 export const metadata: Metadata = {
   title: {
@@ -64,6 +65,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased min-h-screen bg-background text-foreground pb-20 md:pb-0">
+        <div className="bg-noise" />
         <SkipLink />
         <ThemeProvider
           attribute="class"
@@ -74,6 +76,7 @@ export default function RootLayout({
           <TRPCReactProvider>
              {children}
              <ScrollToTop />
+             <CookieBanner />
              {/* Mobile Action Bar is visible only on mobile, handled by CSS inside component */}
              <div className="md:hidden">
                <MobileActionBar />

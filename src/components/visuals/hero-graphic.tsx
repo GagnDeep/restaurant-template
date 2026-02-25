@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
+import { HeroSkeleton } from "@/components/visuals/hero-skeleton"
 
 export function HeroGraphic({ className }: { className?: string }) {
   const [mounted, setMounted] = useState(false)
@@ -24,7 +25,7 @@ export function HeroGraphic({ className }: { className?: string }) {
     return () => window.removeEventListener("mousemove", handleMouseMove)
   }, [])
 
-  if (!mounted) return <div className={cn("w-full h-full min-h-[400px]", className)} />
+  if (!mounted) return <HeroSkeleton className={className} />
 
   return (
     <div className={cn("relative w-full h-[500px] flex items-center justify-center overflow-visible", className)}>

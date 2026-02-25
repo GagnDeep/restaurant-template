@@ -17,13 +17,20 @@ export function AnnouncementBar() {
     const checkTime = () => {
       const now = new Date()
       const hour = now.getHours()
-      // Simple logic assuming same day opening
+
+      // Greeting Logic
+      let greeting = ""
+      if (hour < 12) greeting = "Good Morning!"
+      else if (hour < 18) greeting = "Good Afternoon!"
+      else greeting = "Good Evening!"
+
+      // Open/Closed Logic
       if (hour >= openingHours.open && hour < openingHours.close) {
         setIsOpen(true)
-        setStatusText(siteConfig.uiLabels.announcement.openNow)
+        setStatusText(`${greeting} ${siteConfig.uiLabels.announcement.openNow}`)
       } else {
         setIsOpen(false)
-        setStatusText(`${siteConfig.uiLabels.announcement.opensAt} ${openingHours.open}:00`)
+        setStatusText(`${greeting} ${siteConfig.uiLabels.announcement.opensAt} ${openingHours.open}:00`)
       }
     }
     checkTime()

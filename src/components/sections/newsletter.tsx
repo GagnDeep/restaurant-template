@@ -6,9 +6,17 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { FadeIn } from "@/components/ui/fade-in"
 import { Mail, ArrowRight } from "lucide-react"
+import { useState } from "react"
+import { Confetti } from "@/components/ui/confetti"
 
 export function Newsletter() {
   const { newsletter } = siteConfig.home
+  const [subscribed, setSubscribed] = useState(false)
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault()
+    setSubscribed(true)
+  }
 
   return (
     <Section className="py-24 bg-primary/5 border-t relative overflow-hidden">
@@ -28,16 +36,27 @@ export function Newsletter() {
           <p className="text-muted-foreground md:text-lg/relaxed lg:text-base/relaxed xl:text-lg/relaxed font-sans leading-relaxed">
             {newsletter.description}
           </p>
-          <form className="flex w-full max-w-md items-center space-x-2 pt-6" onSubmit={(e) => e.preventDefault()}>
-            <Input
-              type="email"
-              placeholder={newsletter.placeholder}
-              className="bg-background border-primary/20 h-12 focus-visible:ring-primary shadow-sm"
-            />
-            <Button type="submit" size="lg" className="h-12 px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
-              {newsletter.buttonText} <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-          </form>
+
+          {subscribed ? (
+            <FadeIn className="pt-6 pb-2 text-green-600 font-bold text-xl flex flex-col items-center gap-2">
+              <Confetti />
+              <span>Thanks for subscribing! 🎉</span>
+              <span className="text-sm text-muted-foreground font-normal">Check your inbox for a welcome gift.</span>
+            </FadeIn>
+          ) : (
+            <form className="flex w-full max-w-md items-center space-x-2 pt-6" onSubmit={handleSubmit}>
+              <Input
+                type="email"
+                required
+                placeholder={newsletter.placeholder}
+                className="bg-background border-primary/20 h-12 focus-visible:ring-primary shadow-sm"
+              />
+              <Button type="submit" size="lg" className="h-12 px-6 shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5">
+                {newsletter.buttonText} <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </form>
+          )}
+
           <p className="text-xs text-muted-foreground pt-4">
             {siteConfig.uiLabels.newsletter.privacy} <a href="/privacy" className="underline hover:text-primary">{siteConfig.uiLabels.newsletter.privacyLink}</a>.
           </p>

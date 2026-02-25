@@ -22,7 +22,7 @@ import { Newsletter } from "@/components/sections/newsletter";
 export default async function Home() {
   return (
     <HydrateClient>
-      <div className="flex min-h-screen flex-col">
+      <div className="flex min-h-screen flex-col bg-background relative z-10 mb-[600px] shadow-2xl pb-12">
         <Navbar />
         <main className="flex-1">
           <Hero />
@@ -43,8 +43,8 @@ export default async function Home() {
           <CTA />
           <Newsletter />
         </main>
-        <Footer />
       </div>
+      <Footer />
     </HydrateClient>
   );
 }

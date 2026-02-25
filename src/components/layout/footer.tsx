@@ -18,8 +18,8 @@ export function Footer() {
   }
 
   return (
-    <footer className="border-t bg-background/50 backdrop-blur-sm">
-      <FadeIn className="container px-4 py-12 md:px-6 md:py-16 lg:py-20">
+    <footer className="sticky bottom-0 -z-10 bg-background pt-24 pb-8 border-t">
+      <FadeIn className="container px-4 md:px-6">
         <div className="grid gap-8 lg:gap-12 md:grid-cols-2 lg:grid-cols-4">
 
           {/* Brand Column */}
